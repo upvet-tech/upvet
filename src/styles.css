@@ -1203,6 +1203,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  container-type: inline-size;
   background: var(--navy);
   color: var(--navy-foreground);
   min-height: 130px;
@@ -1229,9 +1230,12 @@
   z-index: 2;
 }
 .institutional-slogan {
-  font-size: 30px;
-  line-height: 1.25;
+  /* ~30% maior que os 30px anteriores, limitado pela largura livre do banner */
+  font-size: min(39px, calc(4.457cqw - 5.03px), calc(6.96cqw - 28.3px));
+  line-height: 1.15;
   font-weight: 800;
+  flex: 1 1 auto;
+  min-width: 0;
   position: relative;
   z-index: 2;
 }
@@ -1583,7 +1587,7 @@
     min-height: 145px;
   }
   .institutional-slogan {
-    font-size: 35px;
+    font-size: min(46px, calc(6.96cqw - 28.3px));
   }
   .reference-metric {
     min-height: 86px;
@@ -1638,7 +1642,7 @@
     gap: 16px;
   }
   .institutional-slogan {
-    font-size: 23px;
+    font-size: min(30px, calc(4.457cqw - 3.27px));
   }
   .institutional-divider {
     height: 73px;
@@ -1774,7 +1778,7 @@
   .institutional-slogan {
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: min(22px, calc(6.96cqw));
   }
   .institutional-wave {
     height: 20px;
@@ -1854,7 +1858,7 @@
     height: 78px;
   }
   .institutional-slogan {
-    font-size: 28px;
+    font-size: min(36px, calc(4.457cqw - 5.03px), calc(6.96cqw - 28.3px));
   }
   .reference-metric {
     min-height: 76px;
@@ -1881,7 +1885,7 @@
 }
 @media (min-width: 761px) and (max-width: 1150px) and (max-height: 800px) {
   .institutional-slogan {
-    font-size: 23px;
+    font-size: min(30px, calc(4.457cqw - 3.27px));
   }
   .institutional-band {
     min-height: 102px;
