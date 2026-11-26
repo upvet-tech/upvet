@@ -1,4 +1,5 @@
-import globeAsset from "@/assets/upvet-globe.png.asset.json";
+import logoAsset from "@/assets/upvet-sidebar-logo.png.asset.json";
+import sphereAsset from "@/assets/upvet-sphere.png.asset.json";
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
@@ -36,11 +37,8 @@ export function useDemo() {
 export function Brand() {
   return (
     <>
-      <img className="brand-symbol" src={globeAsset.url} alt="" />
-      <div className="brand-name">
-        UP<span>VET</span>
-        <small>TECH SYSTEMS</small>
-      </div>
+      <img className="official-sidebar-logo" src={logoAsset.url} alt="UPVET TECH SYSTEMS" />
+      <img className="official-sidebar-sphere" src={sphereAsset.url} alt="UPVET" />
     </>
   );
 }
@@ -95,7 +93,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       }}
     >
       <div
-        className={`app-shell ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}
+        className={`app-shell ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""} ${pathname === "/" ? "reference-home" : ""}`}
       >
         {mobileOpen && (
           <Button
@@ -109,24 +107,21 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Brand />
           </Link>
           <nav aria-label="Menu principal">
-            <div className="nav-section">PRINCIPAL</div>
             {modules.map((m, i) => (
               <div key={m.path}>
-                {i === 8 && <div className="nav-section mt-5">GESTÃO E CONEXÕES</div>}
-                {i === 14 && <div className="mt-4 border-t border-navy-foreground/10 pt-3" />}
                 <Link
                   to={m.path}
                   onClick={() => {
                     setMobileOpen(false);
                     setSearch("");
                   }}
-                  title={m.title}
+                  title={m.path === "/" ? "Início" : m.title}
                   className={`nav-link ${pathname === m.path ? "active" : ""}`}
                   aria-current={pathname === m.path ? "page" : undefined}
                 >
                   <m.icon />
                   <span className="nav-text">
-                    {m.title}
+                    {m.path === "/" ? "Início" : m.title}
                     {m.path === "/laboratorios" && (
                       <span className="connect-tag">UPVET CONNECT</span>
                     )}
@@ -147,6 +142,12 @@ export function AppShell({ children }: { children: ReactNode }) {
         </aside>
         <div className="app-main">
           <header className="topbar">
+            {pathname === "/" && (
+              <div className="reference-greeting">
+                <h1>Olá, equipe UPVET! 👋</h1>
+                <p>Aqui está o resumo da operação da sua clínica veterinária.</p>
+              </div>
+            )}
             <div className="flex items-center gap-5">
               <Button
                 variant="ghost"
