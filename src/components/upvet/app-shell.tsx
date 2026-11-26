@@ -13,7 +13,11 @@ import {
   Sparkles,
   Check,
   X,
+  LogOut,
 } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -52,6 +56,14 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [notice, setNotice] = useState<{ title: string; text: string } | null>(null);
   const [unit, setUnit] = useState("Unidade Centro");
   const current = modules.find((m) => m.path === pathname);
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  async function signOut() {
+    await queryClient.cancelQueries();
+    queryClient.clear();
+    await supabase.auth.signOut();
+    navigate({ to: "/auth", search: { redirect: "/" }, replace: true });
+  }
   function toggleMenu() {
     if (window.matchMedia("(max-width:760px)").matches) setMobileOpen(!mobileOpen);
     else setCollapsed(!collapsed);
@@ -197,6 +209,16 @@ export function AppShell({ children }: { children: ReactNode }) {
                 }
               >
                 <CircleHelp />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="header-button"
+                title="Sair"
+                aria-label="Sair"
+                onClick={signOut}
+              >
+                <LogOut />
               </Button>
               <Button
                 variant="ghost"

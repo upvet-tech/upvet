@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ModulePage } from "@/components/upvet/module-page";
-export const Route = createFileRoute("/prontuarios")({
+export const Route = createFileRoute("/_authenticated/prontuarios")({
   head: () => ({
     meta: [
       { title: "Prontuários | UPVET" },

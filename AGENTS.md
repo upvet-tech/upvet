@@ -36,3 +36,4 @@ use the editor.
 - Keep the shared application shell and demonstration state in a client-side provider; this initial visual stage must not require external services or persistent storage.
 - Give each module its own typed route and metadata, reusing a common module view for initial demonstration navigation.
 - Define operational dashboard metric types separately from financial data so reception views cannot expose financial metrics.
+- Signed-in pages live under `src/routes/_authenticated/` (client-only gate via Supabase `getUser`) and the app shell renders in that layout; `/auth` and `/reset-password` stay public. Why: login pages must render without the shell and protected pages must never render signed out.

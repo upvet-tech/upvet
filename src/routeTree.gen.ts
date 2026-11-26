@@ -9,154 +9,186 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AgendaRouteImport } from './routes/agenda'
-import { Route as AtendimentoRouteImport } from './routes/atendimento'
-import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
-import { Route as EstoqueRouteImport } from './routes/estoque'
-import { Route as FinanceiroRouteImport } from './routes/financeiro'
-import { Route as InternacaoRouteImport } from './routes/internacao'
-import { Route as LaboratoriosRouteImport } from './routes/laboratorios'
-import { Route as MarketplaceRouteImport } from './routes/marketplace'
-import { Route as PacientesRouteImport } from './routes/pacientes'
-import { Route as ProntuariosRouteImport } from './routes/prontuarios'
-import { Route as RelatoriosRouteImport } from './routes/relatorios'
-import { Route as TutoresRouteImport } from './routes/tutores'
-import { Route as VeterinariosRouteImport } from './routes/veterinarios'
-import { Route as WhatsappRouteImport } from './routes/whatsapp'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedAgendaRouteImport } from './routes/_authenticated/agenda'
+import { Route as AuthenticatedAtendimentoRouteImport } from './routes/_authenticated/atendimento'
+import { Route as AuthenticatedConfiguracoesRouteImport } from './routes/_authenticated/configuracoes'
+import { Route as AuthenticatedEstoqueRouteImport } from './routes/_authenticated/estoque'
+import { Route as AuthenticatedFinanceiroRouteImport } from './routes/_authenticated/financeiro'
+import { Route as AuthenticatedInternacaoRouteImport } from './routes/_authenticated/internacao'
+import { Route as AuthenticatedLaboratoriosRouteImport } from './routes/_authenticated/laboratorios'
+import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenticated/marketplace'
+import { Route as AuthenticatedPacientesRouteImport } from './routes/_authenticated/pacientes'
+import { Route as AuthenticatedProntuariosRouteImport } from './routes/_authenticated/prontuarios'
+import { Route as AuthenticatedRelatoriosRouteImport } from './routes/_authenticated/relatorios'
+import { Route as AuthenticatedTutoresRouteImport } from './routes/_authenticated/tutores'
+import { Route as AuthenticatedVeterinariosRouteImport } from './routes/_authenticated/veterinarios'
+import { Route as AuthenticatedWhatsappRouteImport } from './routes/_authenticated/whatsapp'
 
-const IndexRoute = IndexRouteImport.update({
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AgendaRoute = AgendaRouteImport.update({
+const AuthenticatedAgendaRoute = AuthenticatedAgendaRouteImport.update({
   id: '/agenda',
   path: '/agenda',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AtendimentoRoute = AtendimentoRouteImport.update({
-  id: '/atendimento',
-  path: '/atendimento',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
-  id: '/configuracoes',
-  path: '/configuracoes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EstoqueRoute = EstoqueRouteImport.update({
+const AuthenticatedAtendimentoRoute =
+  AuthenticatedAtendimentoRouteImport.update({
+    id: '/atendimento',
+    path: '/atendimento',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedConfiguracoesRoute =
+  AuthenticatedConfiguracoesRouteImport.update({
+    id: '/configuracoes',
+    path: '/configuracoes',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedEstoqueRoute = AuthenticatedEstoqueRouteImport.update({
   id: '/estoque',
   path: '/estoque',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const FinanceiroRoute = FinanceiroRouteImport.update({
+const AuthenticatedFinanceiroRoute = AuthenticatedFinanceiroRouteImport.update({
   id: '/financeiro',
   path: '/financeiro',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const InternacaoRoute = InternacaoRouteImport.update({
+const AuthenticatedInternacaoRoute = AuthenticatedInternacaoRouteImport.update({
   id: '/internacao',
   path: '/internacao',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const LaboratoriosRoute = LaboratoriosRouteImport.update({
-  id: '/laboratorios',
-  path: '/laboratorios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketplaceRoute = MarketplaceRouteImport.update({
-  id: '/marketplace',
-  path: '/marketplace',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PacientesRoute = PacientesRouteImport.update({
+const AuthenticatedLaboratoriosRoute =
+  AuthenticatedLaboratoriosRouteImport.update({
+    id: '/laboratorios',
+    path: '/laboratorios',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedMarketplaceRoute =
+  AuthenticatedMarketplaceRouteImport.update({
+    id: '/marketplace',
+    path: '/marketplace',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPacientesRoute = AuthenticatedPacientesRouteImport.update({
   id: '/pacientes',
   path: '/pacientes',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const ProntuariosRoute = ProntuariosRouteImport.update({
-  id: '/prontuarios',
-  path: '/prontuarios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RelatoriosRoute = RelatoriosRouteImport.update({
+const AuthenticatedProntuariosRoute =
+  AuthenticatedProntuariosRouteImport.update({
+    id: '/prontuarios',
+    path: '/prontuarios',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedRelatoriosRoute = AuthenticatedRelatoriosRouteImport.update({
   id: '/relatorios',
   path: '/relatorios',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const TutoresRoute = TutoresRouteImport.update({
+const AuthenticatedTutoresRoute = AuthenticatedTutoresRouteImport.update({
   id: '/tutores',
   path: '/tutores',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const VeterinariosRoute = VeterinariosRouteImport.update({
-  id: '/veterinarios',
-  path: '/veterinarios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WhatsappRoute = WhatsappRouteImport.update({
+const AuthenticatedVeterinariosRoute =
+  AuthenticatedVeterinariosRouteImport.update({
+    id: '/veterinarios',
+    path: '/veterinarios',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedWhatsappRoute = AuthenticatedWhatsappRouteImport.update({
   id: '/whatsapp',
   path: '/whatsapp',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/agenda': typeof AgendaRoute
-  '/atendimento': typeof AtendimentoRoute
-  '/configuracoes': typeof ConfiguracoesRoute
-  '/estoque': typeof EstoqueRoute
-  '/financeiro': typeof FinanceiroRoute
-  '/internacao': typeof InternacaoRoute
-  '/laboratorios': typeof LaboratoriosRoute
-  '/marketplace': typeof MarketplaceRoute
-  '/pacientes': typeof PacientesRoute
-  '/prontuarios': typeof ProntuariosRoute
-  '/relatorios': typeof RelatoriosRoute
-  '/tutores': typeof TutoresRoute
-  '/veterinarios': typeof VeterinariosRoute
-  '/whatsapp': typeof WhatsappRoute
+  '/': typeof AuthenticatedIndexRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/agenda': typeof AuthenticatedAgendaRoute
+  '/atendimento': typeof AuthenticatedAtendimentoRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/estoque': typeof AuthenticatedEstoqueRoute
+  '/financeiro': typeof AuthenticatedFinanceiroRoute
+  '/internacao': typeof AuthenticatedInternacaoRoute
+  '/laboratorios': typeof AuthenticatedLaboratoriosRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/pacientes': typeof AuthenticatedPacientesRoute
+  '/prontuarios': typeof AuthenticatedProntuariosRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/tutores': typeof AuthenticatedTutoresRoute
+  '/veterinarios': typeof AuthenticatedVeterinariosRoute
+  '/whatsapp': typeof AuthenticatedWhatsappRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/agenda': typeof AgendaRoute
-  '/atendimento': typeof AtendimentoRoute
-  '/configuracoes': typeof ConfiguracoesRoute
-  '/estoque': typeof EstoqueRoute
-  '/financeiro': typeof FinanceiroRoute
-  '/internacao': typeof InternacaoRoute
-  '/laboratorios': typeof LaboratoriosRoute
-  '/marketplace': typeof MarketplaceRoute
-  '/pacientes': typeof PacientesRoute
-  '/prontuarios': typeof ProntuariosRoute
-  '/relatorios': typeof RelatoriosRoute
-  '/tutores': typeof TutoresRoute
-  '/veterinarios': typeof VeterinariosRoute
-  '/whatsapp': typeof WhatsappRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/agenda': typeof AuthenticatedAgendaRoute
+  '/atendimento': typeof AuthenticatedAtendimentoRoute
+  '/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/estoque': typeof AuthenticatedEstoqueRoute
+  '/financeiro': typeof AuthenticatedFinanceiroRoute
+  '/internacao': typeof AuthenticatedInternacaoRoute
+  '/laboratorios': typeof AuthenticatedLaboratoriosRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/pacientes': typeof AuthenticatedPacientesRoute
+  '/prontuarios': typeof AuthenticatedProntuariosRoute
+  '/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/tutores': typeof AuthenticatedTutoresRoute
+  '/veterinarios': typeof AuthenticatedVeterinariosRoute
+  '/whatsapp': typeof AuthenticatedWhatsappRoute
+  '/': typeof AuthenticatedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/agenda': typeof AgendaRoute
-  '/atendimento': typeof AtendimentoRoute
-  '/configuracoes': typeof ConfiguracoesRoute
-  '/estoque': typeof EstoqueRoute
-  '/financeiro': typeof FinanceiroRoute
-  '/internacao': typeof InternacaoRoute
-  '/laboratorios': typeof LaboratoriosRoute
-  '/marketplace': typeof MarketplaceRoute
-  '/pacientes': typeof PacientesRoute
-  '/prontuarios': typeof ProntuariosRoute
-  '/relatorios': typeof RelatoriosRoute
-  '/tutores': typeof TutoresRoute
-  '/veterinarios': typeof VeterinariosRoute
-  '/whatsapp': typeof WhatsappRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/_authenticated/agenda': typeof AuthenticatedAgendaRoute
+  '/_authenticated/atendimento': typeof AuthenticatedAtendimentoRoute
+  '/_authenticated/configuracoes': typeof AuthenticatedConfiguracoesRoute
+  '/_authenticated/estoque': typeof AuthenticatedEstoqueRoute
+  '/_authenticated/financeiro': typeof AuthenticatedFinanceiroRoute
+  '/_authenticated/internacao': typeof AuthenticatedInternacaoRoute
+  '/_authenticated/laboratorios': typeof AuthenticatedLaboratoriosRoute
+  '/_authenticated/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/_authenticated/pacientes': typeof AuthenticatedPacientesRoute
+  '/_authenticated/prontuarios': typeof AuthenticatedProntuariosRoute
+  '/_authenticated/relatorios': typeof AuthenticatedRelatoriosRoute
+  '/_authenticated/tutores': typeof AuthenticatedTutoresRoute
+  '/_authenticated/veterinarios': typeof AuthenticatedVeterinariosRoute
+  '/_authenticated/whatsapp': typeof AuthenticatedWhatsappRoute
+  '/_authenticated/': typeof AuthenticatedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
+    | '/reset-password'
     | '/agenda'
     | '/atendimento'
     | '/configuracoes'
@@ -173,7 +205,8 @@ export interface FileRouteTypes {
     | '/whatsapp'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
+    | '/auth'
+    | '/reset-password'
     | '/agenda'
     | '/atendimento'
     | '/configuracoes'
@@ -188,169 +221,209 @@ export interface FileRouteTypes {
     | '/tutores'
     | '/veterinarios'
     | '/whatsapp'
+    | '/'
   id:
     | '__root__'
-    | '/'
-    | '/agenda'
-    | '/atendimento'
-    | '/configuracoes'
-    | '/estoque'
-    | '/financeiro'
-    | '/internacao'
-    | '/laboratorios'
-    | '/marketplace'
-    | '/pacientes'
-    | '/prontuarios'
-    | '/relatorios'
-    | '/tutores'
-    | '/veterinarios'
-    | '/whatsapp'
+    | '/_authenticated'
+    | '/auth'
+    | '/reset-password'
+    | '/_authenticated/agenda'
+    | '/_authenticated/atendimento'
+    | '/_authenticated/configuracoes'
+    | '/_authenticated/estoque'
+    | '/_authenticated/financeiro'
+    | '/_authenticated/internacao'
+    | '/_authenticated/laboratorios'
+    | '/_authenticated/marketplace'
+    | '/_authenticated/pacientes'
+    | '/_authenticated/prontuarios'
+    | '/_authenticated/relatorios'
+    | '/_authenticated/tutores'
+    | '/_authenticated/veterinarios'
+    | '/_authenticated/whatsapp'
+    | '/_authenticated/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AgendaRoute: typeof AgendaRoute
-  AtendimentoRoute: typeof AtendimentoRoute
-  ConfiguracoesRoute: typeof ConfiguracoesRoute
-  EstoqueRoute: typeof EstoqueRoute
-  FinanceiroRoute: typeof FinanceiroRoute
-  InternacaoRoute: typeof InternacaoRoute
-  LaboratoriosRoute: typeof LaboratoriosRoute
-  MarketplaceRoute: typeof MarketplaceRoute
-  PacientesRoute: typeof PacientesRoute
-  ProntuariosRoute: typeof ProntuariosRoute
-  RelatoriosRoute: typeof RelatoriosRoute
-  TutoresRoute: typeof TutoresRoute
-  VeterinariosRoute: typeof VeterinariosRoute
-  WhatsappRoute: typeof WhatsappRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/': {
+      id: '/_authenticated/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/agenda': {
-      id: '/agenda'
+    '/_authenticated/agenda': {
+      id: '/_authenticated/agenda'
       path: '/agenda'
       fullPath: '/agenda'
-      preLoaderRoute: typeof AgendaRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedAgendaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/atendimento': {
-      id: '/atendimento'
+    '/_authenticated/atendimento': {
+      id: '/_authenticated/atendimento'
       path: '/atendimento'
       fullPath: '/atendimento'
-      preLoaderRoute: typeof AtendimentoRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedAtendimentoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/configuracoes': {
-      id: '/configuracoes'
+    '/_authenticated/configuracoes': {
+      id: '/_authenticated/configuracoes'
       path: '/configuracoes'
       fullPath: '/configuracoes'
-      preLoaderRoute: typeof ConfiguracoesRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedConfiguracoesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/estoque': {
-      id: '/estoque'
+    '/_authenticated/estoque': {
+      id: '/_authenticated/estoque'
       path: '/estoque'
       fullPath: '/estoque'
-      preLoaderRoute: typeof EstoqueRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedEstoqueRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/financeiro': {
-      id: '/financeiro'
+    '/_authenticated/financeiro': {
+      id: '/_authenticated/financeiro'
       path: '/financeiro'
       fullPath: '/financeiro'
-      preLoaderRoute: typeof FinanceiroRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedFinanceiroRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/internacao': {
-      id: '/internacao'
+    '/_authenticated/internacao': {
+      id: '/_authenticated/internacao'
       path: '/internacao'
       fullPath: '/internacao'
-      preLoaderRoute: typeof InternacaoRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedInternacaoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/laboratorios': {
-      id: '/laboratorios'
+    '/_authenticated/laboratorios': {
+      id: '/_authenticated/laboratorios'
       path: '/laboratorios'
       fullPath: '/laboratorios'
-      preLoaderRoute: typeof LaboratoriosRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedLaboratoriosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/marketplace': {
-      id: '/marketplace'
+    '/_authenticated/marketplace': {
+      id: '/_authenticated/marketplace'
       path: '/marketplace'
       fullPath: '/marketplace'
-      preLoaderRoute: typeof MarketplaceRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedMarketplaceRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/pacientes': {
-      id: '/pacientes'
+    '/_authenticated/pacientes': {
+      id: '/_authenticated/pacientes'
       path: '/pacientes'
       fullPath: '/pacientes'
-      preLoaderRoute: typeof PacientesRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedPacientesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/prontuarios': {
-      id: '/prontuarios'
+    '/_authenticated/prontuarios': {
+      id: '/_authenticated/prontuarios'
       path: '/prontuarios'
       fullPath: '/prontuarios'
-      preLoaderRoute: typeof ProntuariosRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedProntuariosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/relatorios': {
-      id: '/relatorios'
+    '/_authenticated/relatorios': {
+      id: '/_authenticated/relatorios'
       path: '/relatorios'
       fullPath: '/relatorios'
-      preLoaderRoute: typeof RelatoriosRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedRelatoriosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/tutores': {
-      id: '/tutores'
+    '/_authenticated/tutores': {
+      id: '/_authenticated/tutores'
       path: '/tutores'
       fullPath: '/tutores'
-      preLoaderRoute: typeof TutoresRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedTutoresRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/veterinarios': {
-      id: '/veterinarios'
+    '/_authenticated/veterinarios': {
+      id: '/_authenticated/veterinarios'
       path: '/veterinarios'
       fullPath: '/veterinarios'
-      preLoaderRoute: typeof VeterinariosRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedVeterinariosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/whatsapp': {
-      id: '/whatsapp'
+    '/_authenticated/whatsapp': {
+      id: '/_authenticated/whatsapp'
       path: '/whatsapp'
       fullPath: '/whatsapp'
-      preLoaderRoute: typeof WhatsappRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AuthenticatedWhatsappRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAgendaRoute: typeof AuthenticatedAgendaRoute
+  AuthenticatedAtendimentoRoute: typeof AuthenticatedAtendimentoRoute
+  AuthenticatedConfiguracoesRoute: typeof AuthenticatedConfiguracoesRoute
+  AuthenticatedEstoqueRoute: typeof AuthenticatedEstoqueRoute
+  AuthenticatedFinanceiroRoute: typeof AuthenticatedFinanceiroRoute
+  AuthenticatedInternacaoRoute: typeof AuthenticatedInternacaoRoute
+  AuthenticatedLaboratoriosRoute: typeof AuthenticatedLaboratoriosRoute
+  AuthenticatedMarketplaceRoute: typeof AuthenticatedMarketplaceRoute
+  AuthenticatedPacientesRoute: typeof AuthenticatedPacientesRoute
+  AuthenticatedProntuariosRoute: typeof AuthenticatedProntuariosRoute
+  AuthenticatedRelatoriosRoute: typeof AuthenticatedRelatoriosRoute
+  AuthenticatedTutoresRoute: typeof AuthenticatedTutoresRoute
+  AuthenticatedVeterinariosRoute: typeof AuthenticatedVeterinariosRoute
+  AuthenticatedWhatsappRoute: typeof AuthenticatedWhatsappRoute
+  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAgendaRoute: AuthenticatedAgendaRoute,
+  AuthenticatedAtendimentoRoute: AuthenticatedAtendimentoRoute,
+  AuthenticatedConfiguracoesRoute: AuthenticatedConfiguracoesRoute,
+  AuthenticatedEstoqueRoute: AuthenticatedEstoqueRoute,
+  AuthenticatedFinanceiroRoute: AuthenticatedFinanceiroRoute,
+  AuthenticatedInternacaoRoute: AuthenticatedInternacaoRoute,
+  AuthenticatedLaboratoriosRoute: AuthenticatedLaboratoriosRoute,
+  AuthenticatedMarketplaceRoute: AuthenticatedMarketplaceRoute,
+  AuthenticatedPacientesRoute: AuthenticatedPacientesRoute,
+  AuthenticatedProntuariosRoute: AuthenticatedProntuariosRoute,
+  AuthenticatedRelatoriosRoute: AuthenticatedRelatoriosRoute,
+  AuthenticatedTutoresRoute: AuthenticatedTutoresRoute,
+  AuthenticatedVeterinariosRoute: AuthenticatedVeterinariosRoute,
+  AuthenticatedWhatsappRoute: AuthenticatedWhatsappRoute,
+  AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AgendaRoute: AgendaRoute,
-  AtendimentoRoute: AtendimentoRoute,
-  ConfiguracoesRoute: ConfiguracoesRoute,
-  EstoqueRoute: EstoqueRoute,
-  FinanceiroRoute: FinanceiroRoute,
-  InternacaoRoute: InternacaoRoute,
-  LaboratoriosRoute: LaboratoriosRoute,
-  MarketplaceRoute: MarketplaceRoute,
-  PacientesRoute: PacientesRoute,
-  ProntuariosRoute: ProntuariosRoute,
-  RelatoriosRoute: RelatoriosRoute,
-  TutoresRoute: TutoresRoute,
-  VeterinariosRoute: VeterinariosRoute,
-  WhatsappRoute: WhatsappRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,19 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ModulePage } from "@/components/upvet/module-page";
-export const Route = createFileRoute("/internacao")({
+export const Route = createFileRoute("/_authenticated/pacientes")({
   head: () => ({
     meta: [
-      { title: "Internação | UPVET" },
+      { title: "Pacientes | UPVET" },
       {
         name: "description",
         content:
-          "Internação da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
+          "Pacientes da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
       },
-      { property: "og:title", content: "Internação | UPVET" },
+      { property: "og:title", content: "Pacientes | UPVET" },
       {
         property: "og:description",
         content:
-          "Internação da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
+          "Pacientes da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -22,5 +22,5 @@ export const Route = createFileRoute("/internacao")({
   component: Page,
 });
 function Page() {
-  return <ModulePage path="/internacao" />;
+  return <ModulePage path="/pacientes" />;
 }

@@ -1,19 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ModulePage } from "@/components/upvet/module-page";
-export const Route = createFileRoute("/financeiro")({
+export const Route = createFileRoute("/_authenticated/whatsapp")({
   head: () => ({
     meta: [
-      { title: "Financeiro | UPVET" },
+      { title: "WhatsApp | UPVET" },
       {
         name: "description",
         content:
-          "Financeiro da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
+          "WhatsApp da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
       },
-      { property: "og:title", content: "Financeiro | UPVET" },
+      { property: "og:title", content: "WhatsApp | UPVET" },
       {
         property: "og:description",
         content:
-          "Financeiro da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
+          "WhatsApp da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -22,5 +22,5 @@ export const Route = createFileRoute("/financeiro")({
   component: Page,
 });
 function Page() {
-  return <ModulePage path="/financeiro" />;
+  return <ModulePage path="/whatsapp" />;
 }

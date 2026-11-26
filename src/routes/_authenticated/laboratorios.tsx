@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ModulePage } from "@/components/upvet/module-page";
-export const Route = createFileRoute("/laboratorios")({
+export const Route = createFileRoute("/_authenticated/laboratorios")({
   head: () => ({
     meta: [
       { title: "Laboratórios — UPVET CONNECT | UPVET" },

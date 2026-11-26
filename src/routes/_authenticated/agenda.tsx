@@ -1,19 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ModulePage } from "@/components/upvet/module-page";
-export const Route = createFileRoute("/marketplace")({
+export const Route = createFileRoute("/_authenticated/agenda")({
   head: () => ({
     meta: [
-      { title: "Marketplace | UPVET" },
+      { title: "Agenda | UPVET" },
       {
         name: "description",
         content:
-          "Marketplace da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
+          "Agenda da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
       },
-      { property: "og:title", content: "Marketplace | UPVET" },
+      { property: "og:title", content: "Agenda | UPVET" },
       {
         property: "og:description",
         content:
-          "Marketplace da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
+          "Agenda da sua clínica veterinária no UPVET. Gestão veterinária completa, moderna e inteligente.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -22,5 +22,5 @@ export const Route = createFileRoute("/marketplace")({
   component: Page,
 });
 function Page() {
-  return <ModulePage path="/marketplace" />;
+  return <ModulePage path="/agenda" />;
 }

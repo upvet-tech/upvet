@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Dashboard } from "@/components/upvet/dashboard";
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_authenticated/")({
   head: () => ({
     meta: [
       { title: "Dashboard | UPVET" },
