@@ -1,5 +1,5 @@
-import officialLogo from "@/assets/upvet-official-logo.png.asset.json";
-import lightWave from "@/assets/upvet-cyan-wave.png.asset.json";
+import officialLogo from "@/assets/upvet-banner-logo-transparent.png.asset.json";
+import lightWave from "@/assets/upvet-banner-wave-soft.png.asset.json";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import {
