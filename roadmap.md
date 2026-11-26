@@ -15,6 +15,8 @@
 - [x] Comparar a tela final com o screenshot e ajustar cores, espaçamentos e organização.
 
 ## Fase 01 — segurança autorizada
-- [ ] Aplicar SQL aditivo com papéis, Super Admin separado, convites e permissões isoladas.
-- [ ] Restringir o Financeiro com verificação autenticada no servidor.
-- [ ] Testar segurança no banco e autenticação; registrar resultados e pendências.
+- [x] Aplicar SQL aditivo com papéis, Super Admin separado, convites e permissões isoladas.
+- [x] Restringir o Financeiro com verificação autenticada no servidor.
+- [x] Testar segurança no banco e autenticação negativa; registrar resultados e pendências.
+- [ ] Desativar cadastro público e habilitar proteção de senhas vazadas — depende das configurações do Supabase externo, indisponíveis para alteração pelos recursos conectados.
+- [ ] Validar login real, Financeiro autorizado/não autorizado, saída e recuperação por e-mail — depende de sessão válida; Supabase externo não permite gerar sessão de teste pelo Lovable.

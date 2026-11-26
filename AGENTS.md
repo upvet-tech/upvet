@@ -37,3 +37,6 @@ use the editor.
 - Give each module its own typed route and metadata, reusing a common module view for initial demonstration navigation.
 - Define operational dashboard metric types separately from financial data so reception views cannot expose financial metrics.
 - Signed-in pages live under `src/routes/_authenticated/` (client-only gate via Supabase `getUser`) and the app shell renders in that layout; `/auth` and `/reset-password` stay public. Why: login pages must render without the shell and protected pages must never render signed out.
+- Finance authorization uses an authenticated server function and the database's clinic-scoped boolean RPC; client roles never authorize access. Why: both direct calls and page loads must enforce tenant permissions.
+- Register the app-owned bearer attacher in Start's function middleware without replacing request middleware. Why: external Supabase sessions must reach authenticated server functions while preserving CSRF protection.
+- Keep clinic role and active-membership RLS helpers SECURITY DEFINER with an empty search path, auth.uid-bound queries and no writes; other access helpers use SECURITY INVOKER. Why: avoid recursive policies without granting arbitrary privileged operations.
