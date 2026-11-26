@@ -61,6 +61,50 @@ export type Database = {
           },
         ]
       }
+      upvet_clinic_invites: {
+        Row: {
+          accepted_at: string | null
+          clinic_id: string
+          created_at: string
+          email: string
+          expires_at: string
+          id: string
+          invited_by: string
+          member_role: string
+          updated_at: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          clinic_id: string
+          created_at?: string
+          email: string
+          expires_at?: string
+          id?: string
+          invited_by?: string
+          member_role: string
+          updated_at?: string
+        }
+        Update: {
+          accepted_at?: string | null
+          clinic_id?: string
+          created_at?: string
+          email?: string
+          expires_at?: string
+          id?: string
+          invited_by?: string
+          member_role?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "upvet_clinic_invites_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "upvet_clinics"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       upvet_clinic_members: {
         Row: {
           clinic_id: string
@@ -132,12 +176,91 @@ export type Database = {
         }
         Relationships: []
       }
+      upvet_member_permissions: {
+        Row: {
+          clinic_id: string
+          created_at: string
+          id: string
+          member_id: string
+          permission: string
+          updated_at: string
+        }
+        Insert: {
+          clinic_id: string
+          created_at?: string
+          id?: string
+          member_id: string
+          permission: string
+          updated_at?: string
+        }
+        Update: {
+          clinic_id?: string
+          created_at?: string
+          id?: string
+          member_id?: string
+          permission?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "upvet_member_permissions_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "upvet_clinics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "upvet_member_permissions_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "upvet_clinic_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      upvet_platform_admins: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      can_access_finance: {
+        Args: { target_clinic_id: string }
+        Returns: boolean
+      }
+      has_active_clinic_access: {
+        Args: { target_clinic_id: string }
+        Returns: boolean
+      }
+      has_clinic_role: {
+        Args: { allowed_roles: string[]; target_clinic_id: string }
+        Returns: boolean
+      }
       is_clinic_member: { Args: { target_clinic_id: string }; Returns: boolean }
+      is_platform_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
