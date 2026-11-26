@@ -13,3 +13,8 @@
 - [x] Validar ações, rotas e visualização em computador, tablet e celular.
 - [x] Renomear o projeto para UPVET.
 - [x] Comparar a tela final com o screenshot e ajustar cores, espaçamentos e organização.
+
+## Fase 01 — segurança autorizada
+- [ ] Aplicar SQL aditivo com papéis, Super Admin separado, convites e permissões isoladas.
+- [ ] Restringir o Financeiro com verificação autenticada no servidor.
+- [ ] Testar segurança no banco e autenticação; registrar resultados e pendências.
